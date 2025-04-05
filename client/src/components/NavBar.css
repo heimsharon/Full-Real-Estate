@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #333;
+  background-color: #3f86dd;
   padding: 10px 20px;
   display: flex;
   justify-content: space-between; /* Space between links and logout button */
@@ -26,7 +26,7 @@
 .navbar-links a {
   color: white;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 .navbar-links a:hover {

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/home-page.css'; 
+import '../styles/global.css'; // Import global styles for consistency
 
 const HomePage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -9,6 +10,11 @@ const HomePage: React.FC = () => {
     console.log(`Searching for: ${searchQuery}`);
     // Add logic to handle the search query (e.g., filter properties)
   };
+
+  const properties = [
+    { id: 1, name: '112 Coventry Ln', price: '$350,000' },
+    { id: 2, name: '45 Maple St', price: '$450,000' },
+  ];
 
   return (
     <div className="home-container">
@@ -25,16 +31,12 @@ const HomePage: React.FC = () => {
       <div className="featured-properties">
         <h2>Featured Properties</h2>
         <div className="property-list">
-          <div className="property-card">
-            <img src="/assets/112 Coventry ln.webp" alt="112 Coventry Ln" />
-            <h3>112 Coventry Ln</h3>
-            <p>$350,000</p>
-          </div>
-          <div className="property-card">
-            <img src="/assets/1252 Biltmore Dr.jpg" alt="1252 Biltmore Dr" />
-            <h3>1252 Biltmore Dr</h3>
-            <p>$450,000</p>
-          </div>
+          {properties.map((property) => (
+            <div key={property.id} className="property-card">
+              <h3>{property.name}</h3>
+              <p>{property.price}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>

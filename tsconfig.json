@@ -5,7 +5,7 @@
     "module": "CommonJS", // Use CommonJS for compatibility with Node.js
     "moduleResolution": "Node",
     "outDir": "dist",
-    "rootDir": "server/src",
+    "rootDir": "./server/src", // Specific to the backend
     "strict": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,

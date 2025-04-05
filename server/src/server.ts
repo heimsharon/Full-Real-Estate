@@ -2,9 +2,8 @@ import dotenv from 'dotenv';
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import authRoutes, { authenticateToken } from './routes/auth-routes.js'; // Add .js extension
-import propertiesRoutes from './routes/properties.js'; // Add .js extension
-import pool from './db.js'; // Add .js extension
+import authRoutes from './routes/auth-routes.js';
+import propertiesRoutes from './routes/properties.js';
 
 dotenv.config();
 
@@ -24,19 +23,8 @@ app.use(express.static(path.join(__dirname, '../../client/dist')));
 // Use the auth routes
 app.use('/api/auth', authRoutes);
 
-// Use the properties routes with authentication
-app.use('/api/properties', authenticateToken, propertiesRoutes);
-
-// Test database connection
-app.get('/api/test-db', async (req, res) => {
-  try {
-    const result = await pool.query('SELECT NOW()');
-    res.json({ message: 'Database connected', time: result.rows[0] });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Database connection failed' });
-  }
-});
+// Use the properties routes
+app.use('/api/properties', propertiesRoutes);
 
 // Serve index.html for all other routes (React Router)
 app.get('*', (req, res) => {
