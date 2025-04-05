@@ -5,13 +5,13 @@
     "module": "CommonJS",
     "moduleResolution": "Node",
     "outDir": "dist", // Ensure compiled files are output to the "dist" folder
-    "rootDir": "src", // Ensure TypeScript compiles files from the "src" folder
+    "rootDir": ".", // Set rootDir to the project root
     "strict": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "skipLibCheck": true
   },
-  "include": ["src/**/*", "server/**/*", "client/**/*"],
+  "include": ["client/**/*", "server/**/*"], // Include client and server directories
   "exclude": ["dist", "node_modules"],
   "name": "main",
   "version": "1.0.0",
