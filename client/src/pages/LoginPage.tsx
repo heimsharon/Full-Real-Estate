@@ -1,13 +1,13 @@
 // Description: Login page component for user authentication in a React application.
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import '../styles/login.css'; // Correct relative path
 import '../styles/global.css'; // Import global styles for consistency
-
 
 const LoginPage: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [rememberMe, setRememberMe] = useState(false);
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
@@ -39,9 +39,22 @@ const LoginPage: React.FC = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        <div className="remember-me">
+          <input
+            type="checkbox"
+            id="rememberMe"
+            checked={rememberMe}
+            onChange={(e) => setRememberMe(e.target.checked)}
+          />
+          <label htmlFor="rememberMe">Remember Me</label>
+        </div>
         <button type="submit">Login</button>
       </form>
       {error && <p className="error">{error}</p>}
+      <div className="additional-links">
+        <Link to="/forgot-password">Forgot Password?</Link>
+        <Link to="/create-account">Create Account</Link>
+      </div>
     </div>
   );
 };

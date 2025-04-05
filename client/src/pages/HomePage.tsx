@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/home-page.css'; 
+import '../styles/home-page.css';
 import '../styles/global.css'; // Import global styles for consistency
 
 const HomePage: React.FC = () => {
@@ -12,8 +12,18 @@ const HomePage: React.FC = () => {
   };
 
   const properties = [
-    { id: 1, name: '112 Coventry Ln', price: '$350,000' },
-    { id: 2, name: '45 Maple St', price: '$450,000' },
+    {
+      id: 1,
+      name: '112 Coventry Ln',
+      price: '$350,000',
+      image: '/assets/112 Coventry Ln.png',
+    },
+    {
+      id: 2,
+      name: '45 Maple St',
+      price: '$450,000',
+      image: '/assets/45 Maple St.png',
+    },
   ];
 
   return (
@@ -33,6 +43,7 @@ const HomePage: React.FC = () => {
         <div className="property-list">
           {properties.map((property) => (
             <div key={property.id} className="property-card">
+              <img src={property.image} alt={property.name} />
               <h3>{property.name}</h3>
               <p>{property.price}</p>
             </div>

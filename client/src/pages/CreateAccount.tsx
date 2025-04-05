@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/login.css';
 
 const CreateAccount: React.FC = () => {
   return (
@@ -8,8 +9,11 @@ const CreateAccount: React.FC = () => {
         <input type="text" placeholder="Username" />
         <input type="email" placeholder="Email" />
         <input type="password" placeholder="Password" />
-        <button type="submit">Sign Up</button>
+        <button type="submit" disabled>Create Account</button>
       </form>
+      <p className="error-message">
+        This feature is not currently available. Please contact support for assistance.
+      </p>
     </div>
   );
 };

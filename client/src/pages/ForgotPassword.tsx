@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/login.css';
 
 const ForgotPassword: React.FC = () => {
   return (
@@ -6,8 +7,11 @@ const ForgotPassword: React.FC = () => {
       <h1>Forgot Password</h1>
       <form>
         <input type="email" placeholder="Enter your email" />
-        <button type="submit">Reset Password</button>
+        <button type="submit" disabled>Reset Password</button>
       </form>
+      <p className="error-message">
+        This feature is not currently available. Please contact support for assistance.
+      </p>
     </div>
   );
 };
