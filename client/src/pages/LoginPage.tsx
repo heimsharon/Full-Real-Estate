@@ -3,45 +3,45 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const LoginPage: React.FC = () => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
+
     try {
       const response = await fetch('/api/auth/login', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, password }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
       });
 
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Login failed');
+        const { message } = await response.json();
+        setError(message);
+        return;
       }
 
-      // Redirect to the "Hi" page
-      navigate('/home');
+      const { token } = await response.json();
+      localStorage.setItem('token', token); // Store token in localStorage
+      navigate('/home'); // Redirect to home page
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Login failed');
+      console.error(err);
+      setError('An error occurred. Please try again.');
     }
   };
 
   return (
     <div className="login-container">
-      <div className="logo">
-        <img src="/assets/realestate-logo.png" alt="Logo" />
-      </div>
+      <h1>Login</h1>
       <form onSubmit={handleLogin}>
         <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="password"
@@ -51,12 +51,7 @@ const LoginPage: React.FC = () => {
         />
         <button type="submit">Login</button>
       </form>
-      {error && <p className="error-message">{error}</p>}
-      {/* Add links for Create Account and Forgot Password */}
-      <div className="additional-links">
-        <a href="/CreateAccount">Create an Account</a>
-        <a href="/ForgotPassword">Forgot Password?</a>
-      </div>
+      {error && <p className="error">{error}</p>}
     </div>
   );
 };

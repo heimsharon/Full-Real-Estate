@@ -1,15 +1,15 @@
 -- Insert Users (Buyers, Sellers, and Agents)
-INSERT INTO users (name, email, phone, user_type) VALUES
-('Alice Johnson', 'alice.johnson@example.com', '123-456-7890', 'seller'),
-('Bob Smith', 'bob.smith@example.com', '234-567-8901', 'seller'),
-('Charlie Brown', 'charlie.brown@example.com', '345-678-9012', 'agent'),
-('Diana Prince', 'diana.prince@example.com', '456-789-0123', 'agent'),
-('Ethan Hunt', 'ethan.hunt@example.com', '567-890-1234', 'buyer'),
-('Fiona Green', 'fiona.green@example.com', '678-901-2345', 'buyer'),
-('George White', 'george.white@example.com', '789-012-3456', 'seller'),
-('Hannah Blue', 'hannah.blue@example.com', '890-123-4567', 'agent'),
-('Ian Gray', 'ian.gray@example.com', '901-234-5678', 'buyer'),
-('Julia Gold', 'julia.gold@example.com', '012-345-6789', 'seller');
+INSERT INTO users (name, email, phone, user_type, password) VALUES
+('Alice Johnson', 'alice.johnson@example.com', '123-456-7890', 'seller', '$2a$10$CwTycUXWue0Thq9StjUM0uJ8z9H8J6z8pQ2z9J8z9H8J6z8pQ2z9H'), -- Password: 123
+('Bob Smith', 'bob.smith@example.com', '234-567-8901', 'seller', NULL),
+('Charlie Brown', 'charlie.brown@example.com', '345-678-9012', 'agent', NULL),
+('Diana Prince', 'diana.prince@example.com', '456-789-0123', 'agent', NULL),
+('Ethan Hunt', 'ethan.hunt@example.com', '567-890-1234', 'buyer', NULL),
+('Fiona Green', 'fiona.green@example.com', '678-901-2345', 'buyer', NULL),
+('George White', 'george.white@example.com', '789-012-3456', 'seller', NULL),
+('Hannah Blue', 'hannah.blue@example.com', '890-123-4567', 'agent', NULL),
+('Ian Gray', 'ian.gray@example.com', '901-234-5678', 'buyer', NULL),
+('Julia Gold', 'julia.gold@example.com', '012-345-6789', 'seller', NULL);
 
 -- Insert Agents
 INSERT INTO agents (user_id, agency_name, rating) VALUES

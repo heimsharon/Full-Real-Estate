@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import authRoutes from './routes/auth-routes.js'; // Add .js extension
+import authRoutes, { authenticateToken } from './routes/auth-routes.js'; // Add .js extension
 import propertiesRoutes from './routes/properties.js'; // Add .js extension
 import pool from './db.js'; // Add .js extension
 
@@ -24,8 +24,8 @@ app.use(express.static(path.join(__dirname, '../../client/dist')));
 // Use the auth routes
 app.use('/api/auth', authRoutes);
 
-// Use the properties routes
-app.use('/api', propertiesRoutes);
+// Use the properties routes with authentication
+app.use('/api/properties', authenticateToken, propertiesRoutes);
 
 // Test database connection
 app.get('/api/test-db', async (req, res) => {
