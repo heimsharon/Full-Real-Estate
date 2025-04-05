@@ -2,16 +2,16 @@
   "compilerOptions": {
     "target": "ES2020",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "module": "CommonJS",
+    "module": "CommonJS", // Use CommonJS for compatibility with Node.js
     "moduleResolution": "Node",
-    "outDir": "dist", // Ensure compiled files are output to the "dist" folder
-    "rootDir": ".", // Set rootDir to the project root
+    "outDir": "dist",
+    "rootDir": "server/src",
     "strict": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "skipLibCheck": true
   },
-  "include": ["client/**/*", "server/**/*"], // Include client and server directories
+  "include": ["server/src/**/*"],
   "exclude": ["dist", "node_modules"],
   "name": "main",
   "version": "1.0.0",
@@ -21,7 +21,7 @@
     "start": "npm run client:build && npm run server",
     "start:dev": "concurrently \"npm run server:dev\" \"wait-on tcp:3001 && npm run client:dev\"",
     "server": "cd server && npm start",
-    "server:dev": "nodemon --watch src --ext ts --exec ts-node src/server.ts",
+    "server:dev": "nodemon --watch server/src --ext ts --exec ts-node -r tsconfig-paths/register server/src/server.ts",
     "client:build": "cd client && npm run build",
     "client:dev": "cd client && npm run dev"
   },

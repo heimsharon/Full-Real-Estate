@@ -1,4 +1,8 @@
 import pkg from 'pg';
+import dotenv from 'dotenv';
+
+dotenv.config(); // Load environment variables from .env file
+
 const { Pool } = pkg;
 
 // Create a connection pool
