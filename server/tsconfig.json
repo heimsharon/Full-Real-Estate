@@ -1,0 +1,19 @@
+{
+    "extends": "../tsconfig.json",
+    "compilerOptions": {
+      /* Modules */
+      "rootDir": "src", // Ensure TypeScript compiles files from the "src" folder
+  
+      /* Emit */
+      "outDir": "dist", // Ensure compiled files go to the "dist" folder
+      "esModuleInterop": true, // Allow default imports for CommonJS modules
+      "module": "ESNext", // Use ES modules
+      "moduleResolution": "Node", // Resolve modules in Node.js style
+      "target": "ES2020", // Target modern JavaScript
+      "resolveJsonModule": true,
+      "strict": true,
+      "skipLibCheck": true
+    },
+    "include": ["src/**/*"],
+    "exclude": ["dist", "node_modules"]
+}
