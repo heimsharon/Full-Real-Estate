@@ -1,15 +1,14 @@
 import fs from 'fs';
 import path from 'path';
-import pool from './db.js';
+import pool from './db.js'; // Import the database connection
 
+// Function to run an SQL file
 const runSQLFile = async (filePath: string) => {
-  if (!fs.existsSync(filePath)) {
-    throw new Error(`SQL file not found: ${filePath}`);
-  }
   const sql = fs.readFileSync(filePath, 'utf-8');
   await pool.query(sql);
 };
 
+// Main function to set up the database
 const setupDatabase = async () => {
   try {
     console.log('Setting up the database...');

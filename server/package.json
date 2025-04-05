@@ -7,8 +7,7 @@
   "scripts": {
     "build": "npx tsc",
     "start": "node dist/server.js",
-    "setup-db": "node dist/setup-db.js",
-    "start:prod": "NODE_ENV=production node dist/server.js"
+    "setup-db": "node dist/setup-db.js"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
