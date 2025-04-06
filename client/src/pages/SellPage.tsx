@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
-import '../styles/sell-page.css'; // Add a new CSS file for styling the form
+import '../styles/sell-page.css'; 
 
 const SellPage: React.FC = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<{
+    propertyName: string;
+    address: string;
+    price: string;
+    description: string;
+    image: File | null;
+  }>({
     propertyName: '',
     address: '',
     price: '',
     description: '',
-    image: null as File | null,
+    image: null,
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

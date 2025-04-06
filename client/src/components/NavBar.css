@@ -1,20 +1,22 @@
+/* Navbar container */
 .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #1462c2;
-  padding: 10px 20px;
+  background-color: #333;
+  padding: 12px 24px;
   display: flex;
-  justify-content: space-between; /* Space between links and logout button */
+  justify-content: space-between;
   align-items: center;
-  z-index: 1000; /* Ensure it stays on top of other elements */
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-size: 102%;
 }
 
+/* Navbar links */
 .navbar-links {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 18px;
   margin: 0;
   padding: 0;
 }
@@ -26,29 +28,32 @@
 .navbar-links a {
   color: white;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 1.02rem;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
 }
 
 .navbar-links a:hover {
-  text-decoration: underline;
+  background-color: #555;
 }
 
+/* Logout button styling */
 .logout-button {
-  display: inline-block; /* Ensures the button does not stretch */
-  margin-left: 0px; /* Removed unnecessary left margin */
-  margin-right: 15px; /* Added spacing on the right */
-  width: auto; /* Automatically adjusts to fit the content */
-  padding: 5px 11px; /* Slightly larger padding for better appearance */
+  margin-left: auto;
+}
+
+.logout-link {
   background-color: #f44336;
   color: white;
-  border: none;
+  padding: 10px 14px;
   border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.8rem; /* Smaller font size */
-  align-self: center; /* Ensure it aligns vertically with the navbar */
+  text-decoration: none;
+  font-size: 1.02rem;
+  transition: background-color 0.3s ease;
 }
 
-.logout-button:hover {
+.logout-link:hover {
   background-color: #d32f2f;
 }
 

@@ -1,14 +1,12 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import '../styles/navbar.css'; // Add styles for the navbar if needed
+import '../styles/NavBar.css'; 
 
 const NavBar: React.FC = () => {
   const location = useLocation();
 
-  // Hide the navbar on the login page
-  if (location.pathname === '/') {
-    return null;
-  }
+  // Determine if the logout button should be displayed
+  const showLogout = location.pathname !== '/';
 
   return (
     <nav className="navbar">
@@ -19,7 +17,11 @@ const NavBar: React.FC = () => {
         <li><Link to="/sell">Sell</Link></li>
         <li><Link to="/agent">Agent</Link></li>
         <li><Link to="/map">Map</Link></li>
-        <li><Link to="/">Logout</Link></li>
+        {showLogout && (
+          <li className="logout-button">
+            <Link to="/" className="logout-link">Logout</Link>
+          </li>
+        )}
       </ul>
     </nav>
   );

@@ -1,16 +1,21 @@
 export const apiRequest = async (url: string, options: RequestInit = {}) => {
-  const token = localStorage.getItem('token'); // Retrieve the token from localStorage
+  const token = localStorage.getItem('token');
 
   const headers = {
     ...options.headers,
-    Authorization: `Bearer ${token}`, // Add the token to the Authorization header
+    Authorization: `Bearer ${token}`,
   };
 
-  const response = await fetch(url, { ...options, headers });
+  try {
+    const response = await fetch(url, { ...options, headers });
 
-  if (!response.ok) {
-    throw new Error(`API request failed with status ${response.status}`);
+    if (!response.ok) {
+      throw new Error(`API request failed with status ${response.status}`);
+    }
+
+    return response.json();
+  } catch (error) {
+    console.error('API request error:', error);
+    throw error;
   }
-
-  return response.json();
 };
