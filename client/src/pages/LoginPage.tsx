@@ -11,15 +11,30 @@ const LoginPage: React.FC = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Mock login validation
-    if (username === 'testuser' && password === '123') {
-      localStorage.setItem('token', 'mock-jwt-token');
-      navigate('/home');
-    } else {
-      setError('Invalid username or password');
+    try {
+      // Replace with your authentication API endpoint
+      const response = await fetch('https://api.example.com/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        const token = data.token; // Assuming the API returns a token in the response
+        localStorage.setItem('token', token); // Save the token in localStorage
+        navigate('/home'); // Navigate to the home page
+      } else {
+        setError('Invalid username or password');
+      }
+    } catch (error) {
+      console.error('Error during login:', error);
+      setError('An error occurred. Please try again.');
     }
   };
 
