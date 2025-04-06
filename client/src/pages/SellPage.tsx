@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import '../styles/sell-page.css'; 
+import NavBar from '../components/NavBar';
+import '../styles/Global.css';
+import '../styles/SellPage.css';
 
 const SellPage: React.FC = () => {
   const [formData, setFormData] = useState<{

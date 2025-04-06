@@ -10,6 +10,7 @@ import RentPage from './pages/RentPage';
 import SellPage from './pages/SellPage';
 import AgentPage from './pages/AgentPage';
 import MapPage from './pages/MapPage';
+import './styles/Global.css';
 
 const App: React.FC = () => {
   return (

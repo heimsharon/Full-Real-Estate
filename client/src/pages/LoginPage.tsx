@@ -1,8 +1,9 @@
 // Description: Login page component for user authentication in a React application.
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import '../styles/login.css'; // Correct relative path
-import '../styles/global.css'; // Import global styles for consistency
+import NavBar from '../components/NavBar';
+import '../styles/LoginPage.css';
+import '../styles/Global.css';
 
 const LoginPage: React.FC = () => {
   const [username, setUsername] = useState('');

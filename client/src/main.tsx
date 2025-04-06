@@ -2,8 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './styles/global.css'; // Global styles
-import './styles/login.css'; // Login-specific styles
+import './styles/Global.css';
 import NavBar from './components/NavBar';
 import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';

@@ -1,5 +1,7 @@
 import React from 'react';
-import '../styles/home-page.css'; 
+import NavBar from '../components/NavBar';
+import '../styles/Global.css';
+import '../styles/BuyPage.css';
 
 const BuyPage: React.FC = () => {
   const housesForSale = [
@@ -27,9 +29,15 @@ const BuyPage: React.FC = () => {
   ];
 
   return (
-    <div className="home-container">
-      <h1>Houses for Sale</h1>
+    <div>
+      {/* NavBar is placed at the top */}
+      <NavBar />
+      <div className="home-container">
+        <h1>Welcome to the Buy Page</h1>
+        <p>Explore our collection of houses for sale and find your dream home.</p>
+      </div>
       <div className="property-list">
+        <h1>Houses for Sale</h1>
         {housesForSale.map((house) => (
           <div key={house.id} className="property-card">
             <img src={house.image} alt={house.name} className="property-image" />

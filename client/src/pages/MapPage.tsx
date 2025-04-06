@@ -1,6 +1,9 @@
 import React from 'react';
+import NavBar from '../components/NavBar'; 
 import { MapContainer, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
+import '../styles/Global.css';
+import '../styles/MapPage.css';
 
 const MapPage: React.FC = () => {
   return (

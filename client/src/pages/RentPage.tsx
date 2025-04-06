@@ -1,4 +1,9 @@
 import React from 'react';
+import NavBar from '../components/NavBar';
+import '../styles/Global.css';
+import '../styles/RentPage.css';
+
+
 
 const RentPage: React.FC = () => {
   return (

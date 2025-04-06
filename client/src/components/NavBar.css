@@ -1,16 +1,17 @@
 /* Navbar container */
 .navbar {
-  background-color: #333;
-  padding: 12px 24px;
+  width: 100%;
+  height: 60px; /* Adjust height as needed */
+  background-color: #333; /* Example background color */
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  padding: 0 20px; /* Add padding for spacing */
+  box-sizing: border-box; /* Ensure padding doesn't affect width */
   color: white;
   position: fixed; /* Fix the navbar at the top */
   top: 0; /* Position it at the top of the page */
-  width: 100%; /* Ensure it spans the full width of the page */
   z-index: 1000; /* Ensure it stays above other elements */
-  font-size: 102%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
 }
 
@@ -30,7 +31,7 @@
 .navbar-links a {
   color: white;
   text-decoration: none;
-  font-size: 1.02rem;
+  font-size: 1rem;
   padding: 6px 12px;
   border-radius: 4px;
   transition: background-color 0.3s ease;
@@ -51,7 +52,7 @@
   padding: 10px 14px;
   border-radius: 4px;
   text-decoration: none;
-  font-size: 1.02rem;
+  font-size: 1rem;
   transition: background-color 0.3s ease;
 }
 
@@ -63,4 +64,14 @@
 body {
   margin: 0;
   padding-top: 60px; /* Adjust based on the height of the navbar */
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
 }

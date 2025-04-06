@@ -1,5 +1,7 @@
 import React from 'react';
-import '../styles/login.css';
+import NavBar from '../components/NavBar'; 
+import '../styles/Global.css';
+import '../styles/LoginPage.css';
 
 const ForgotPassword: React.FC = () => {
   return (

@@ -1,11 +1,10 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import './NavBar.css'; // Ensure this path is correct
+import './NavBar.css'; 
 
 const NavBar: React.FC = () => {
   const location = useLocation();
 
-  // Determine if the logout button should be displayed
   const showLogout = location.pathname !== '/';
 
   return (
@@ -15,7 +14,7 @@ const NavBar: React.FC = () => {
         <li><Link to="/buy">Buy</Link></li>
         <li><Link to="/rent">Rent</Link></li>
         <li><Link to="/sell">Sell</Link></li>
-        <li><Link to="/agent">Agent</Link></li>
+        <li><Link to="/agents">Agents</Link></li>
         <li><Link to="/map">Map</Link></li>
         {showLogout && (
           <li className="logout-button">

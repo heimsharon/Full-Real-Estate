@@ -1,6 +1,7 @@
 import React from 'react';
-import '../styles/home-page.css';
-import '../styles/global.css'; 
+import NavBar from '../components/NavBar'; 
+import '../styles/Global.css';
+import '../styles/HomePage.css';
 
 const HomePage: React.FC = () => {
   const properties = [
@@ -21,23 +22,26 @@ const HomePage: React.FC = () => {
   ];
 
   return (
-    <div className="home-container">
-      <h1>Welcome to the Home Page</h1>
-      <div className="property-list">
-        {properties.map((property) => (
-          <div key={property.id} className="property-card">
-            <img
-              src={property.image}
-              alt={property.name}
-              className="property-image"
-            />
-            <div className="property-details">
-              <h2>{property.name}</h2>
-              <p>Price: {property.price}</p>
-              <p>Deposit: {property.deposit}</p>
+    <div>
+      <NavBar />
+      <div className="content">
+        <h1>Welcome to the Home Page</h1>
+        <div className="property-list">
+          {properties.map((property) => (
+            <div key={property.id} className="property-card">
+              <img
+                src={property.image}
+                alt={property.name}
+                className="property-image"
+              />
+              <div className="property-details">
+                <h2>{property.name}</h2>
+                <p>Price: {property.price}</p>
+                <p>Deposit: {property.deposit}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
