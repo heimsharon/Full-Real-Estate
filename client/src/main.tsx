@@ -1,7 +1,7 @@
 // Description: Main entry point for the React application, setting up the router and rendering the App component.
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Import Routes and Route
 import './styles/Global.css';
 import NavBar from './components/NavBar';
 import LoginPage from './pages/LoginPage';
@@ -15,9 +15,8 @@ import AgentPage from './pages/AgentPage';
 
 const App: React.FC = () => {
   return (
-    <>
-      {/* Always show the NavBar */}
-      <NavBar />
+    <Router>
+      <NavBar /> 
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path="/home" element={<HomePage />} />
@@ -28,14 +27,9 @@ const App: React.FC = () => {
         <Route path="/sell" element={<SellPage />} />
         <Route path="/agent" element={<AgentPage />} />
       </Routes>
-    </>
+    </Router>
   );
 };
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
-  </React.StrictMode>
-);
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
+root.render(<App />);

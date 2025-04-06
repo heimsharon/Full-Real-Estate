@@ -10,6 +10,7 @@
   padding: 20px;
   background: url('/assets/realestate-login-background.webp') no-repeat center center fixed;
   background-size: cover;
+  padding-top: 60px; /* Add padding equal to the NavBar height */
 }
 
 .search-bar {

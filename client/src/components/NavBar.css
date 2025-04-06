@@ -1,25 +1,26 @@
 /* Navbar container */
 .navbar {
-  width: 100%;
+  position: fixed; /* Fix the NavBar at the top */
+  top: 0;
+  left: 0;
+  width: 100%; /* Ensure it spans the full width of the viewport */
   height: 60px; /* Adjust height as needed */
-  background-color: #333; /* Example background color */
+  background-color: #333; /* Adjust color as needed */
+  color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px; /* Add padding for spacing */
-  box-sizing: border-box; /* Ensure padding doesn't affect width */
-  color: white;
-  position: fixed; /* Fix the navbar at the top */
-  top: 0; /* Position it at the top of the page */
+  padding: 0 20px; /* Add horizontal padding for spacing */
   z-index: 1000; /* Ensure it stays above other elements */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
 }
 
 /* Navbar links */
 .navbar-links {
-  list-style: none;
   display: flex;
-  gap: 18px;
+  justify-content: space-around; /* Space links evenly */
+  width: 100%; /* Ensure links span the full width of the NavBar */
+  list-style: none; /* Remove default list styling */
   margin: 0;
   padding: 0;
 }
@@ -29,7 +30,7 @@
 }
 
 .navbar-links a {
-  color: white;
+  color: rgb(9, 8, 8);
   text-decoration: none;
   font-size: 1rem;
   padding: 6px 12px;
@@ -38,7 +39,7 @@
 }
 
 .navbar-links a:hover {
-  background-color: #555;
+  background-color: #c9c910;
 }
 
 /* Logout button styling */
