@@ -6,10 +6,12 @@
   justify-content: space-between;
   align-items: center;
   color: white;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  position: fixed; /* Fix the navbar at the top */
+  top: 0; /* Position it at the top of the page */
+  width: 100%; /* Ensure it spans the full width of the page */
+  z-index: 1000; /* Ensure it stays above other elements */
   font-size: 102%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
 }
 
 /* Navbar links */
@@ -59,5 +61,6 @@
 
 /* Add padding to the body to prevent content from being hidden under the navbar */
 body {
+  margin: 0;
   padding-top: 60px; /* Adjust based on the height of the navbar */
 }

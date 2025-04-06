@@ -1,39 +1,44 @@
 import React from 'react';
 import '../styles/home-page.css';
-import '../styles/global.css'; // Import global styles for consistency
-import Map from '../components/Map';
+import '../styles/global.css'; 
 
 const HomePage: React.FC = () => {
+  const properties = [
+    {
+      id: 1,
+      name: '101 Elm Lane',
+      price: '$2,500/month',
+      deposit: '$1,200',
+      image: '/assets/101 Elm.png', 
+    },
+    {
+      id: 2,
+      name: '125 Bay Drive',
+      price: '$2,800/month',
+      deposit: '$1,500',
+      image: '/assets/125 Bay Dr.jpg', 
+    },
+  ];
+
   return (
     <div className="home-container">
       <h1>Welcome to the Home Page</h1>
-      <div className="property-section">
-        <div className="property-card">
-          <img
-            src="/assets/101 Elm.png"
-            alt="101 Elm"
-            className="property-image"
-          />
-          <div className="property-details">
-            <h2>101 Elm</h2>
-            <p>Price: $2,500/month</p>
-            <p>Deposit: $1,200</p>
+      <div className="property-list">
+        {properties.map((property) => (
+          <div key={property.id} className="property-card">
+            <img
+              src={property.image}
+              alt={property.name}
+              className="property-image"
+            />
+            <div className="property-details">
+              <h2>{property.name}</h2>
+              <p>Price: {property.price}</p>
+              <p>Deposit: {property.deposit}</p>
+            </div>
           </div>
-        </div>
-        <div className="property-card">
-          <img
-            src="/assets/125 Bay Dr.jpg"
-            alt="125 Bay Dr"
-            className="property-image"
-          />
-          <div className="property-details">
-            <h2>125 Bay Dr</h2>
-            <p>Price: $2,800/month</p>
-            <p>Deposit: $1,500</p>
-          </div>
-        </div>
+        ))}
       </div>
-      <Map />
     </div>
   );
 };
