@@ -1,16 +1,14 @@
 import React from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import './NavBar.css'; // Add styles for the navigation bar
+import { Link, useLocation } from 'react-router-dom';
+import '../styles/navbar.css'; // Add styles for the navbar if needed
 
 const NavBar: React.FC = () => {
-  const location = useLocation(); // Get the current route
-  const navigate = useNavigate(); // For navigation
+  const location = useLocation();
 
-  const handleLogout = () => {
-    // Perform logout logic here (e.g., clear tokens, reset state)
-    console.log('User logged out');
-    navigate('/'); // Redirect to the login page
-  };
+  // Hide the navbar on the login page
+  if (location.pathname === '/') {
+    return null;
+  }
 
   return (
     <nav className="navbar">
@@ -20,13 +18,9 @@ const NavBar: React.FC = () => {
         <li><Link to="/rent">Rent</Link></li>
         <li><Link to="/sell">Sell</Link></li>
         <li><Link to="/agent">Agent</Link></li>
+        <li><Link to="/map">Map</Link></li>
+        <li><Link to="/">Logout</Link></li>
       </ul>
-      {/* Conditionally render the logout button */}
-      {location.pathname !== '/' && (
-        <button className="logout-button" onClick={handleLogout}>
-          Logout
-        </button>
-      )}
     </nav>
   );
 };
