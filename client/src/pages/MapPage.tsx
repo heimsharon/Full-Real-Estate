@@ -15,18 +15,20 @@ L.Icon.Default.mergeOptions({
 
 const MapPage: React.FC = () => {
   return (
-    <div className="map-container">
-      <MapContainer
-        center={[51.505, -0.09]} // Default center (e.g., London)
-        zoom={13}
-        style={{ height: '100vh', width: '100%' }}
-      >
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution="&copy; OpenStreetMap contributors"
-          errorTileUrl="/assets/error-tile.png" // Fallback tile image
-        />
-      </MapContainer>
+    <div className="map-page">
+      <div className="map-container">
+        <MapContainer
+          center={[51.505, -0.09]} // Default center (e.g., London)
+          zoom={13}
+          style={{ height: '100%', width: '100%' }} // Ensure full height and width
+        >
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution="&copy; OpenStreetMap contributors"
+            errorTileUrl="/assets/error-tile.png" // Fallback tile image
+          />
+        </MapContainer>
+      </div>
     </div>
   );
 };

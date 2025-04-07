@@ -12,6 +12,7 @@ import BuyPage from './pages/BuyPage';
 import RentPage from './pages/RentPage';
 import SellPage from './pages/SellPage';
 import AgentPage from './pages/AgentPage';
+import MapPage from './pages/MapPage'; // Import MapPage
 
 const App: React.FC = () => {
   return (
@@ -26,6 +27,7 @@ const App: React.FC = () => {
         <Route path="/rent" element={<RentPage />} />
         <Route path="/sell" element={<SellPage />} />
         <Route path="/agent" element={<AgentPage />} />
+        <Route path="/map" element={<MapPage />} /> {/* Add MapPage route */}
       </Routes>
     </Router>
   );
