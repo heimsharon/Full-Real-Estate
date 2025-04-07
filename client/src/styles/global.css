@@ -157,7 +157,7 @@ button:hover, .btn:hover {
   color: #555;
 }
 
-#root {
+body.map-page-active #root {
   width: 100%;
   height: 100%;
   display: flex;

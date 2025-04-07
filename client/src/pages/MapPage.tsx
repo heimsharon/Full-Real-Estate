@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import L from 'leaflet';
 import { MapContainer, TileLayer } from 'react-leaflet';
 
@@ -14,20 +14,29 @@ L.Icon.Default.mergeOptions({
 });
 
 const MapPage: React.FC = () => {
+  useEffect(() => {
+    document.body.classList.add('map-page-active');
+    return () => {
+      document.body.classList.remove('map-page-active');
+    };
+  }, []);
+
   return (
-    <div className="map-page">
-      <div className="map-container">
-        <MapContainer
-          center={[51.505, -0.09]} // Default center (e.g., London)
-          zoom={13}
-          style={{ height: '100%', width: '100%' }} // Ensure full height and width
-        >
-          <TileLayer
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            attribution="&copy; OpenStreetMap contributors"
-            errorTileUrl="/assets/error-tile.png" // Fallback tile image
-          />
-        </MapContainer>
+    <div id="root">
+      <div className="map-page">
+        <div className="map-container">
+          <MapContainer
+            center={[51.505, -0.09]} // Default center (e.g., London)
+            zoom={13}
+            style={{ height: '100%', width: '100%' }} // Ensure full height and width
+          >
+            <TileLayer
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              attribution="&copy; OpenStreetMap contributors"
+              errorTileUrl="/assets/error-tile.png" // Fallback tile image
+            />
+          </MapContainer>
+        </div>
       </div>
     </div>
   );
