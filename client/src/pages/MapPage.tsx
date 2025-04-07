@@ -1,21 +1,32 @@
 import React from 'react';
-import NavBar from '../components/NavBar'; 
+import L from 'leaflet';
+import { MapContainer, TileLayer } from 'react-leaflet';
+
 import 'leaflet/dist/leaflet.css';
 import '../styles/Global.css';
 import '../styles/MapPage.css';
 
+delete (L.Icon.Default.prototype as any)._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+  iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+});
+
 const MapPage: React.FC = () => {
   return (
-    <div style={{ width: '100%', height: '100vh' }}>
-      <iframe
-        title="Map"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.835434509374!2d-122.4194154846818!3d37.77492927975986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858064f4e0b1b1%3A0x8c2e0b1b1b1b1b1b!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1610000000000!5m2!1sen!2sus"
-        width="100%"
-        height="100%"
-        style={{ border: 0 }}
-        allowFullScreen={true}
-        loading="lazy"
-      ></iframe>
+    <div className="map-container">
+      <MapContainer
+        center={[51.505, -0.09]} // Default center (e.g., London)
+        zoom={13}
+        style={{ height: '100vh', width: '100%' }}
+      >
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution="&copy; OpenStreetMap contributors"
+          errorTileUrl="/assets/error-tile.png" // Fallback tile image
+        />
+      </MapContainer>
     </div>
   );
 };

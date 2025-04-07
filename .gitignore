@@ -1,13 +1,13 @@
-DS.store
-node_modules
-.env
-# Node.js dependencies
+# Dependency directories
 node_modules/
+
 # Logs
 logs/
 *.log
+
 # Environment variables
 .env
+.env.*
 .env.local
 .env.development
 .env.development.local
@@ -15,12 +15,15 @@ logs/
 .env.test.local
 .env.production
 .env.production.local
+
 # Build files
 dist/
 build/
+
 # OS-specific files
 .DS_Store
 Thumbs.db
+
 # IDE and editor files
 .vscode/
 .idea/
@@ -29,3 +32,9 @@ Thumbs.db
 *.njsproj
 *.sln
 *.sw?
+
+# Test coverage
+coverage/
+
+# TypeScript build info
+*.tsbuildinfo

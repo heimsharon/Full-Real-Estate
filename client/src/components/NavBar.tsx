@@ -14,7 +14,7 @@ const NavBar: React.FC = () => {
         <li><Link to="/buy">Buy</Link></li>
         <li><Link to="/rent">Rent</Link></li>
         <li><Link to="/sell">Sell</Link></li>
-        <li><Link to="/agents">Agents</Link></li>
+        <li><Link to="/agent">Agents</Link></li>
         <li><Link to="/map">Map</Link></li>
         {showLogout && (
           <li className="logout-button">

@@ -2,16 +2,23 @@
   "compilerOptions": {
     "target": "ES2020",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "module": "CommonJS", // Use CommonJS for compatibility with Node.js
+    "module": "ES2020", // Change this from "CommonJS" to "ES2020"
     "moduleResolution": "Node",
     "outDir": "dist",
-    "rootDir": "./server/src", // Specific to the backend
+    "rootDir": "./", // Set to the project root
     "strict": true,
+    "strictNullChecks": true, // Enforce stricter type checking
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true, // Improve compatibility with ES modules
     "resolveJsonModule": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "noUnusedLocals": true, // Catch unused variables
+    "noUnusedParameters": true, // Catch unused function parameters
+    "forceConsistentCasingInFileNames": true, // Avoid case-sensitive file path issues
+    "composite": true, // Enable project references
+    "incremental": true // Enable incremental builds
   },
-  "include": ["server/src/**/*"],
+  "include": ["server/src/**/*", "client/src/**/*"], // Include both server and client
   "exclude": ["dist", "node_modules"],
   "name": "main",
   "version": "1.0.0",
